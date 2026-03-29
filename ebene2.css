@@ -1,0 +1,84 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* KEIN SCROLLEN */
+  background: black;
+  font-family: "Courier New", monospace;
+}
+
+/* 🔥 BACKGROUND BILD */
+.bild-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("granat.JPG");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* 🔥 KLICKBEREICHE */
+.sound {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  cursor: pointer;
+
+  /* DEBUG sichtbar (zum Testen) */
+  background: rgba(255, 0, 0, 0.3);
+  border: 2px dashed white;
+}
+
+/* 6 POSITIONEN */
+.sound1 { top: 20%; left: 15%; }
+.sound2 { top: 40%; left: 30%; }
+.sound3 { top: 60%; left: 50%; }
+.sound4 { top: 30%; left: 70%; }
+.sound5 { top: 70%; left: 75%; }
+.sound6 { top: 50%; left: 10%; }
+
+/* INPUT */
+#user-input {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  font-size: 16px;
+  background: transparent;
+  border: none;
+  color: white;
+  outline: none;
+  display: none;
+  text-align: center;
+}
+
+/* PROMPT */
+#prompt-text {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+/* EXPLORE */
+#explore {
+  position: absolute;
+  color: white;
+  font-size: 16px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+}

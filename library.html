@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Synterlude</title>
+  <link rel="stylesheet" href="library.css">
+</head>
+<body>
+
+  <div class="bild-container">
+    <!-- Großes Treppenhaus-Bild -->
+    <img src="ntreppenhaus.png" alt="Altes Treppenhaus">
+
+    <!-- Sound-Zylinder -->
+    <div class="sound sound1" data-audio="audio1"></div>
+    <div class="sound sound2" data-audio="audio2"></div>
+    <div class="sound sound3" data-audio="audio3"></div>
+    <div class="sound sound4" data-audio="audio4"></div>
+    <div class="sound sound5" data-audio="audio5"></div>
+    <div class="sound sound6" data-audio="audio6"></div>
+    <div class="sound sound7" data-audio="audio7"></div>
+
+    <!-- Eingabefelder für jeden Soundpunkt -->
+    <input type="text" id="user-input1" placeholder="What do you hear?" class="user-input">
+    <input type="text" id="user-input2" placeholder="What do you hear?" class="user-input">
+    <input type="text" id="user-input3" placeholder="What do you hear?" class="user-input">
+    <input type="text" id="user-input4" placeholder="What do you hear?" class="user-input">
+    <input type="text" id="user-input5" placeholder="What do you hear?" class="user-input">
+    <input type="text" id="user-input6" placeholder="What do you hear?" class="user-input">
+    <input type="text" id="user-input7" placeholder="What do you hear?" class="user-input">
+
+    <!-- Prompt-Text für jeden Soundpunkt -->
+    <div id="prompt-text1" class="prompt-text">Dark tunnel, in the background a single train with squealing carriages that eventually stops</div>
+    <div id="prompt-text2" class="prompt-text">Incanation</div>
+    <div id="prompt-text3" class="prompt-text"> Bodycam audio: Mother realizes what she has done. Mother is confused, crying, and distraught</div>
+    <div id="prompt-text4" class="prompt-text">Sleep Paralysis, creature talking to me</div>
+    <div id="prompt-text5" class="prompt-text">A woman who is obsessed, typing a message and talking to herself</div>
+    <div id="prompt-text6" class="prompt-text">Whale in the sea </div>
+    <div id="prompt-text7" class="prompt-text">Unfamiliar Sound</div>
+
+  </div>
+
+  <!-- Audio-Dateien -->
+  <audio id="audio1" src="audio_treppenhaus/heizkörper.wav"></audio>
+  <audio id="audio2" src="audio_treppenhaus/Incanation.wav"></audio>
+  <audio id="audio3" src="audio_treppenhaus/bodycam.wav"></audio>
+  <audio id="audio4" src="audio_treppenhaus/sleep paralysis.wav"></audio>
+  <audio id="audio5" src="audio_treppenhaus/obsessed.wav"></audio>
+  <audio id="audio6" src="audio_treppenhaus/whale.wav"></audio>
+  <audio id="audio7" src="audio_treppenhaus/Unfamiliar Sound.wav"></audio>
+
+  <script src="library.js"></script>
+</body>
+</html>

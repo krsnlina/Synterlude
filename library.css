@@ -1,0 +1,199 @@
+/* ---------------------- */
+/* RESET & Grundlayout */
+/* ---------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: auto; 
+  background-color: black;
+  font-family: "Courier New", monospace;
+}
+
+/* ---------------------- */
+/* Bild-Container */
+/* ---------------------- */
+.bild-container {
+  position: relative;
+  width: max-content;
+}
+
+.bild-container img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: none;
+}
+
+/* ---------------------- */
+/* Soundbereiche */
+/* ---------------------- */
+.sound {
+  position: absolute;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+/* Kugel */
+.sound1 {
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  top: 1000px;
+  left: 1700px;
+  background: rgb(255, 255, 255); /* unsichtbar oder weiß */
+  position: absolute;
+  z-index: 1000; /* <-- wichtig, damit er über dem Overlay liegt */
+}
+
+/* Runde bunte Kugeln */
+.sound2, .sound3, .sound4, .sound5, .sound6, .sound7, .sound8 {
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  position: absolute;
+  z-index: 100;
+}
+
+/* Hover-Effekt */
+.sound2:hover { transform: scale(1.2); }
+.sound3:hover { transform: scale(1.2); }
+.sound4:hover { transform: scale(1.2); }
+.sound5:hover { transform: scale(1.2); }
+.sound6:hover { transform: scale(1.2); }
+.sound7:hover { transform: scale(1.2); }
+
+/* Individuelle Positionen & Farben */
+.sound2 { top: 300px; left: 500px; background-color: rgb(255, 255, 255); }
+.sound3 { top: 2380px; left: 1535px; background-color: rgb(255, 255, 255); }
+.sound4 { top: 1180px; left: 3170px; background-color: rgb(255, 255, 255); }
+.sound5 { top: 4240px; left: 1500px; background-color: rgb(255, 255, 255); }
+.sound6 { top: 4400px; left: 500px; background-color: rgb(255, 255, 255); }
+.sound7 { top: 2800px; left: 1900px; background-color: rgb(255, 255, 255); }
+
+/* ---------------------- */
+/* Eingabefelder individuell positionieren */
+.user-input {
+  position: absolute;
+  width: 300px;             /* Breite wie vorher */
+  font-family: "Courier New", monospace;
+  font-size: 15px;
+  background: rgba(0,0,0,0); /* durchsichtig wie vorher */
+  border: none;             /* kein Rahmen */
+  color: white;             /* Text weiß */
+  outline: none;
+  display: none;            /* unsichtbar am Anfang */
+  z-index: 1000;
+}
+#user-input1 { top: 970px; left: 1700px; }
+#user-input2 { top: 270px; left: 500px; }
+#user-input3 { top: 2350px; left: 1535px; }
+#user-input4 { top: 1150px; left: 3170px; }
+#user-input5 { top: 4210px; left: 1500px; }
+#user-input6 { top: 4370px; left: 500px; }
+#user-input7 { top: 2770px; left: 1900px; }
+
+/* Prompt-Text individuell positionieren */
+.prompt-text {
+  position: absolute;
+  font-family: "Courier New", monospace;
+  font-size: 15px;
+  color: white;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1s ease-in-out;
+  z-index: 9999;
+  white-space: nowrap;
+}
+
+#prompt-text1 { top: 940px; left: 1700px; }
+#prompt-text2 { top: 240px; left: 500px; }
+#prompt-text3 { top: 2320px; left: 1535px; }
+#prompt-text4 { top: 1120px; left: 3170px; }
+#prompt-text5 { top: 4180px; left: 1500px; }
+#prompt-text6 { top: 4340px; left: 500px; }
+#prompt-text7 { top: 2740px; left: 1900px; }
+
+/* ---------------------- */
+/* Overlay-Bild */
+.overlay-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: auto;
+  height: auto;
+  max-width: none;
+  z-index: 50;
+  display: none;
+} /* Link-Kreis (ähnlich wie sound1) */
+.link-circle {
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  position: absolute;
+  top: 2850px;   /* anpassen, wo der Kreis erscheinen soll */
+  left: 3270px;  /* anpassen */
+  background: rgb(255, 255, 255); /* sichtbar oder unsichtbar wie sound1 */
+  z-index: 1000; /* damit er über Overlay bleibt */
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.link-circle:hover {
+  transform: scale(1.2);
+}/* Exit-Text über Link-Kreis */
+.exit-text {
+  position: absolute;
+  top: 2850px;   /* gleiche Position wie link-circle */
+  left: 3300px;  /* gleiche Position wie link-circle */
+  font-family: 'Courier New', monospace;
+  font-size: 15px;
+  color: white;
+  z-index: 1001; /* über dem Link-Kreis, damit sichtbar */
+  pointer-events: none; /* Text klickt nicht, nur optisch */
+  white-space: nowrap;
+}/* ---------------------- */
+/* Exit-Link Hover Glow (wie Start-HTML) */
+/* ---------------------- */
+.link-circle {
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  position: absolute;
+  top: 2850px;   /* anpassen */
+  left: 3270px;  /* anpassen */
+  background: rgb(255, 255, 255);
+  z-index: 1000;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.link-circle:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 15px 5px rgb(255, 255, 255); /* genau wie Start-HTML */
+}html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* verhindert Body-Scroll */
+  background-color: black;
+}
+
+.bild-container {
+  position: relative;
+  width: 100vw;   /* Viewport-Breite */
+  height: 100vh;  /* Viewport-Höhe */
+  overflow: auto; /* Scroll nur hier */
+}
+
+.bild-container img {
+  display: block;
+  max-width: none;
+  max-height: none;
+}
