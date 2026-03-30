@@ -1,53 +1,28 @@
-/* ---------------------- */
-/* Grundlayout */
-/* ---------------------- */
 body {
   margin: 0;
-  background-color: black;
-  color: white;
+  background-color: black; /* Schwarzer Hintergrund */
   font-family: sans-serif;
-
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-
   overflow: hidden;
 }
 
-/* ---------------------- */
-/* Container für Hintergrundbild */
-/* ---------------------- */
+/* Container fixieren */
 .bild-container {
   position: relative;
-
-  /* 🔥 WICHTIG: feste Größe (an dein Bild anpassen!) */
   width: 1600px;
   height: 900px;
+  background-color: black; /* Container auch schwarz */
 }
 
-/* Hintergrundbild */
-.bild-container img {
-  width: 100%;
-  height: 100%;
-
-  display: block;
-
-  /* 🔥 PIXEL FIX */
-  image-rendering: pixelated;
-  image-rendering: crisp-edges;
-
-  transition: opacity 0.5s ease;
-}
-
-/* ---------------------- */
-/* Hinweis-Feld */
-/* ---------------------- */
+/* Hinweis */
 #hint {
   position: absolute;
-  font-size: 15px;
-  font-family: "Courier New", monospace;
   color: white;
+  font-family: "Courier New", monospace;
+  font-size: 15px;
   opacity: 0;
   pointer-events: none;
   z-index: 9999;
@@ -55,40 +30,23 @@ body {
   transition: opacity 0.3s;
 }
 
-#hint.show {
-  opacity: 1;
-  transform: translate(-50%, -100%) scale(1.2);
-  animation: float 1s ease-in-out forwards;
-}
-
-@keyframes float {
-  0%   { transform: translate(-50%, -100%) scale(1.2); }
-  50%  { transform: translate(-50%, -105%) scale(1.2); }
-  100% { transform: translate(-50%, -100%) scale(1); }
-}
-
-/* ---------------------- */
-/* Soundbereiche */
-/* ---------------------- */
+/* Soundbereiche sichtbar in weiß */
 .sound {
   position: absolute;
-  width: 70px;
-  height: 70px;
-  cursor: pointer;
-  background: rgba(0, 255, 0, 0);
+  width: 17px;
+  height: 17px;
   border-radius: 50%;
-  transition: all 0.3s ease;
+  background: white; /* Weiß sichtbar */
+  cursor: pointer;
+  z-index: 2;
 }
 
 .sound:hover {
-  background: rgba(0, 255, 0, 0);
-  box-shadow: 0 0 15px rgba(0, 255, 0, 0);
   transform: scale(1.2);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0);
 }
 
-/* ---------------------- */
-/* INDIVIDUELLE POSITIONEN */
-/* ---------------------- */
+/* Individuelle Positionen */
 .sound1 { top: 580px; left: 270px; }
 .sound2 { top: 570px; left: 500px; }
 .sound3 { top: 580px; left: 610px; }
@@ -98,34 +56,26 @@ body {
 .sound7 { top: 540px; left: 980px; }
 .sound8 { top: 480px; left: 1260px; }
 
-/* ---------------------- */
 /* Link-Bereich */
-/* ---------------------- */
 .link-bereich {
   position: absolute;
-  top: 600px;
-  left: 727px;
+  top: 550px;
+  left: 700px;
   width: 17px;
   height: 17px;
-  cursor: pointer;
-  background: rgb(255, 255, 255);
   border-radius: 50%;
+  background: white;
+  cursor: pointer;
+  box-shadow: 0 0 0 0 white;
   transition: 0.3s;
-
-  /* Startzustand: kein Glow */
-  box-shadow: 0 0 0 0 rgb(255, 255, 255);
 }
 
-
-
-/* 🔹 Glow-Klasse für einmaliges Aufleuchten */
 .link-bereich.glow {
   animation: glow-once 1s forwards;
 }
 
-/* Keyframes für einmaliges starkes Aufleuchten (wie Start-HTML) */
 @keyframes glow-once {
-  0%   { box-shadow: 0 0 0 0 rgb(255, 255, 255); }
-  50%  { box-shadow: 0 0 15px 5px rgb(255, 255, 255); }
-  100% { box-shadow: 0 0 15px 5px rgb(255, 255, 255); }
+  0%   { box-shadow: 0 0 0 0 white; }
+  50%  { box-shadow: 0 0 15px 5px white; }
+  100% { box-shadow: 0 0 15px 5px white; }
 }

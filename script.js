@@ -13,14 +13,14 @@ let canGoIn = false;
 // CONFIG (HIER PASST DU BILDER AN)
 // ===========================
 const soundConfig = {
-  audio1: { img: "gesicht 1.jpg", top: 530, left: 269, width: 58 },
-  audio2: { img: "gesicht 3.jpg", top: 525, left: 500, width: 68 },
-  audio3: { img: "gesicht 4.jpg", top: 542, left: 610, width: 68 },
-  audio4: { img: "gesicht 2.jpg", top: 495, left: 390, width: 68 },
-  audio5: { img: "gesicht 5.jpg", top: 515, left: 800, width: 52 },
-  audio6: { img: "gesicht 6.jpg", top: 545, left: 906, width: 55 },
-  audio7: { img: "gesicht 7.jpg", top: 522, left: 988, width: 45 },
-  audio8: { img: "gesicht8.jpg", top: 470, left: 1240, width: 60 }
+  audio1: { img: "gesicht 1.jpg", top: 530, left: 250, width: 70 },
+  audio2: { img: "gesicht 3.jpg", top: 515, left: 475, width: 80 },
+  audio3: { img: "gesicht 4.jpg", top: 515, left: 580, width: 75 },
+  audio4: { img: "gesicht 2.jpg", top: 490, left: 360, width: 75 },
+  audio5: { img: "gesicht 5.jpg", top: 500, left: 770, width: 62 },
+  audio6: { img: "gesicht 6.jpg", top: 500, left: 870, width: 65 },
+  audio7: { img: "gesicht 7.jpg", top: 500, left: 960, width: 52 },
+  audio8: { img: "gesicht8.jpg", top: 440, left: 1230, width: 65 }
 };
 
 // ===========================
@@ -143,7 +143,7 @@ document.addEventListener("click", (event) => {
     const x = event.pageX;
     const y = event.pageY;
 
-    hint.textContent = "Click the heads";
+    hint.textContent = "dot";
 
     hint.style.left = x + "px";
     hint.style.top = y + "px";
