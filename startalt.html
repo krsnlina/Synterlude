@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synterlude</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+
+        .dot {
+            position: absolute;
+            width: 17px;
+            height: 17px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        #hint {
+            position: absolute;
+            background: rgba(255, 255, 255, 0);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 0px;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-family: 'Courier New', monospace;
+            font-size: 15px;
+        }
+
+        /* Textbereiche */
+        .text-box {
+            position: absolute;
+            font-size: 15px;
+            font-family: 'Courier New', monospace;
+            color: white;
+        }
+
+        /* Hover-Effekt für Link-Punkte */
+        .link-dot {
+            transition: all 0.3s ease;
+        }
+
+        .link-dot:hover {
+            box-shadow: 0 0 15px 5px rgb(255, 255, 255); /* Leuchteffekt */
+            transform: scale(1);
+        }
+    </style>
+</head>
+<body>
+
+<div id="hint">dot</div>
+
+<!-- Textbereiche -->
+<div class="text-box" style="left: 1210px; top: 700px;">ENTER</div>
+<div class="text-box" style="left: 90px; top: 54px;">ABOUT</div>
+
+<script>
+    const hint = document.getElementById("hint");
+
+    // 🎵 Sound-Punkte
+    const dots = [
+        { x: 100, y: 450, sound: "startsound/echo person die flüstert Kopie.wav", color: "white" },
+        { x: 300, y: 200, sound: "startsound/paralysis.wav", color: "white" },
+        { x: 600, y: 100, sound: "startsound/aircraft1.wav", color: "white" },
+        { x: 700, y: 250, sound: "startsound/falling.wav", color: "white" },
+        { x: 1100, y: 500, sound: "startsound/a_deep_bass_sound_and_laughter_pt3 Kopie.wav", color: "white" },
+        { x: 1300, y: 600, sound: "startsound/A_mother_who_sings_aKopie.wav", color: "white" },
+        { x: 1000, y: 750, sound: "startsound/Capture_by_horror_cl_.wav", color: "white" },
+        { x: 200, y: 700, sound: "startsound/Glck Prsn sht was schlm Kopie.wav", color: "white" },
+        { x: 150, y: 100, sound: "startsound/dream_core_.wav", color: "white" },
+        { x: 350, y: 450, sound: "startsound/Rave_and_really_stro_.wav", color: "white" },
+        { x: 550, y: 700, sound: "startsound/sinking_into_a_coma__.wav", color: "white" },
+        { x: 750, y: 500, sound: "startsound/A person which is dying Kopie.wav", color: "white" },
+        { x: 900, y: 200, sound: "startsound/a_deep_bass_sound_and_laughter_pt4 Kopie.wav", color: "white" },
+        { x: 250, y: 250, sound: "startsound/a_guy_who_has_such_p.wav", color: "white" },
+        { x: 450, y: 550, sound: "startsound/A_village_woman_sing_.wav", color: "white" },
+        { x: 650, y: 350, sound: "startsound/absurd Kopie.wav", color: "white" },
+        { x: 850, y: 100, sound: "startsound/An echo and a person whispering in German._1 Kopie.wav", color: "white" },
+        { x: 1300, y: 200, sound: "startsound/Muslim_call_to_praye_.wav", color: "white" },
+        { x: 1000, y: 600, sound: "startsound/Eine Person die plötzlich angst hat pt2 Kopie.wav", color: "white" },
+        { x: 1100, y: 600, sound: "startsound/orthodox_christian_chant_pt1 Kopie.wav", color: "white" }
+    ];
+
+    // 🔗 Link-Punkte
+    const linkDots = [
+        { x: 1180, y: 700, link: "chant.html", color: "white" },
+        { x: 60, y: 54, link: "about.html", color: "white" }
+    ];
+
+    // 🎵 Sound-Punkte erstellen
+    dots.forEach((item) => {
+        const dot = document.createElement("div");
+        dot.classList.add("dot", "sound"); // "sound" hinzufügen
+
+        dot.style.left = item.x + "px";
+        dot.style.top = item.y + "px";
+        dot.style.backgroundColor = item.color;
+
+        dot.addEventListener("click", () => {
+            const audio = new Audio(item.sound);
+            audio.play().catch(e => console.log("Fehler beim Abspielen:", e));
+        });
+
+        document.body.appendChild(dot);
+    });
+
+    // 🔗 Link-Punkte erstellen mit Glow
+    linkDots.forEach((item) => {
+        const dot = document.createElement("a");
+        dot.classList.add("dot", "link-dot"); // Glow-Klasse hinzufügen
+        dot.href = item.link;
+
+        dot.style.left = item.x + "px";
+        dot.style.top = item.y + "px";
+        dot.style.backgroundColor = item.color;
+
+        document.body.appendChild(dot);
+    });
+
+    // 🔹 DOT-Hinweis
+    document.addEventListener("click", function(event) {
+        const target = event.target;
+
+        // DOT nur anzeigen, wenn NICHT auf Sound-Punkte oder Link-Punkte geklickt wird
+        if (!target.classList.contains("sound") && !target.classList.contains("link-dot")) {
+            const x = event.pageX;
+            const y = event.pageY;
+
+            hint.textContent = "dot"; // klein
+            hint.style.left = x + "px";
+            hint.style.top = y + "px";
+            hint.style.transform = "translate(-50%, -100%)";
+            hint.style.opacity = "1";
+
+            setTimeout(() => {
+                hint.style.opacity = "0";
+            }, 3000);
+        }
+    });
+</script>
+
+</body>
+</html><script>
+    // 🔄 Nur Sound-Punkte bewegen (Link-Punkte bleiben stehen)
+    const allDots = document.querySelectorAll(".dot");
+
+    allDots.forEach(dot => {
+
+        // Link-Dots NICHT bewegen
+        if (dot.classList.contains("link-dot")) return;
+
+        let offsetX = Math.random() * 2 - 1;
+        let offsetY = Math.random() * 2 - 1;
+        let speed = Math.random() * 0.4 + 0.1;
+
+        function move() {
+            let x = parseFloat(dot.style.left);
+            let y = parseFloat(dot.style.top);
+
+            // leichte zufällige Bewegung
+            offsetX += (Math.random() - 0.5) * 0.03;
+            offsetY += (Math.random() - 0.5) * 0.03;
+
+            x += offsetX * speed;
+            y += offsetY * speed;
+
+            // Bildschirmgrenzen
+            const maxX = window.innerWidth - 17;
+            const maxY = window.innerHeight - 17;
+
+            // Richtungswechsel bei Rand
+            if (x <= 0 || x >= maxX) offsetX *= -1;
+            if (y <= 0 || y >= maxY) offsetY *= -1;
+
+            // innerhalb halten
+            x = Math.max(0, Math.min(x, maxX));
+            y = Math.max(0, Math.min(y, maxY));
+
+            dot.style.left = x + "px";
+            dot.style.top = y + "px";
+
+            requestAnimationFrame(move);
+        }
+
+        move();
+    });
+</script>
