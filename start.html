@@ -123,8 +123,10 @@ linkDots.forEach(item => {
 });
 
 // 🔤 TEXT POSITIONEN
-setPosition(document.getElementById("enter"), 0.5, 0.48);
-setPosition(document.getElementById("about"), 0.08, 0.07);
+// ABOUT zu about.html Dot: Offset X = 0.08 - 0.05 = 0.03, Offset Y = 0
+// Anwenden auf ENTER zu chant.html Dot: 0.48 + 0.03 = 0.51, Y bleibt 0.5
+setPosition(document.getElementById("enter"), 0.50, 0.5);
+setPosition(document.getElementById("about"), 0.07, 0.07);
 
 // 🔄 Bewegung bleibt gleich (aber jetzt responsive Grenzen)
 document.querySelectorAll(".dot").forEach(dot => {
