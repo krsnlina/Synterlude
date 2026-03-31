@@ -51,7 +51,7 @@ body {
 
 <body>
 
-<div id="hint">dot</div>
+<div id="hint">click the dots</div>
 
 <!-- TEXT -->
 <div class="text-box" id="enter">ENTER</div>
@@ -167,8 +167,11 @@ document.addEventListener("click", function(event) {
     const target = event.target;
 
     if (!target.classList.contains("sound") && !target.classList.contains("link-dot")) {
-        hint.style.left = event.pageX + "px";
-        hint.style.top = event.pageY + "px";
+       const hintWidth = hint.offsetWidth;
+const hintHeight = hint.offsetHeight;
+
+hint.style.left = (event.pageX - hintWidth / 2) + "px";  // horizontal zentriert
+hint.style.top = (event.pageY - hintHeight - 0) + "px"; // 10px oberhalb des Cursors
         hint.style.opacity = "1";
 
         setTimeout(() => hint.style.opacity = "0", 3000);
